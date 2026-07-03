@@ -1,7 +1,7 @@
 -- main.lua  SingleMon entry point.
 local cfg = require("config")
 
--- Mount the LOVE-MONCLONE asset directory as 'assets/' in our virtual filesystem.
+-- Mount an optional external sprite directory as 'assets/' in our virtual filesystem.
 -- If the path is wrong, update config.lua → assetPath.
 if not love.filesystem.mount(cfg.assetPath, "assets") then
   print("[WARN] Could not mount assets from: " .. cfg.assetPath)
