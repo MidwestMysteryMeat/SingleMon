@@ -31,7 +31,7 @@ See [`docs/GAP_ANALYSIS.md`](docs/GAP_ANALYSIS.md). This is meant to stay a lean
 
 ## AI development note
 
-Built and repaired primarily through AI-assisted "vibe coding" with **Anthropic Claude** (Claude Code); **OpenAI Codex** reviews output per the shared workflow. Human direction owned the design and the Gen 1 accuracy goal; the AI implemented the engine and authored the test suite. The 2026-07-02 rescue pass (three boot-blocking fixes + the 1099-assertion suite) was done with Claude. There is no LLM or AI in the game itself — it's a deterministic rules engine.
+Developed and repaired with AI assistance — **Anthropic Claude** (Claude Code) for implementation and **OpenAI Codex** for review. Human direction owned the design and the Gen 1 accuracy goal. The 2026-07-02 rescue pass (three boot-blocking fixes + the 1099-assertion suite) was done with Claude. There is no LLM or AI in the game itself — it's a deterministic rules engine.
 
 ## License
 
