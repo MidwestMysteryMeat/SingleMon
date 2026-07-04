@@ -35,4 +35,4 @@ Developed and repaired with AI assistance — **Anthropic Claude** (Claude Code)
 
 ## License
 
-MIT — see [LICENSE](LICENSE). Sprite assets are not bundled (they load from an external MONCLONE path); the shipped code is original.
+Proprietary — see [LICENSE](LICENSE). Licensed under the **Ephemeral / Proprietary License** (All Rights Reserved with a Sharing Exception). Sprite assets are not bundled (they load from an external MONCLONE path); the shipped code is original.
