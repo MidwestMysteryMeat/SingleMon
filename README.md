@@ -36,3 +36,9 @@ Developed and repaired with AI assistance — **Anthropic Claude** (Claude Code)
 ## License
 
 Proprietary — see [LICENSE](LICENSE). Licensed under the **Ephemeral / Proprietary License** (All Rights Reserved with a Sharing Exception). Sprite assets are not bundled (they load from an external MONCLONE path); the shipped code is original.
+
+---
+
+<sub>Support development — <a href="https://ko-fi.com/midwestmysterymeat">Ko-fi</a></sub>
+
+<img src=".github/donation-qrcode.png" width="120" alt="Donation QR code">
