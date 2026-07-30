@@ -16,8 +16,12 @@ Requires [LÖVE 11.4](https://love2d.org/).
 
 ```
 love .                        # play (renders shapes unless you set config.lua assetPath)
-lua tests/run_tests.lua       # 1099-assertion headless suite, ~1s, no LÖVE needed
+lua tests/run_tests.lua       # 1101-assertion headless suite, ~1s, no LÖVE needed
+luacheck .                    # static analysis; must report 0 errors
 ```
+
+`.luacheckrc` excludes vendored `lib/` and mutes purely cosmetic codes, each
+with a stated reason. Both checks must be clean before a commit.
 
 Sprites are optional: `config.lua` points `assetPath` at a MONCLONE asset folder; if it's missing (the default), the game logs a warning and renders colored shapes.
 
