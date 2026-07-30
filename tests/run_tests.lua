@@ -102,15 +102,21 @@ eq(a.enemy.stats.hp, b.enemy.stats.hp, 'same seed reproduces identical damage')
 
 -- Priority beats speed: slow player with quick_strike moves first.
 -- Give the enemy overwhelming speed; if priority failed, enemy would act first.
-local stP = freshState(20, 20)
+-- Distinct species on each side: damage events identify their target by
+-- speciesId, so with both sides defaulting to 'pinklet' the first event could
+-- not be attributed and the ordering assertion was impossible to write.
+local stP = freshState(20, 20, 'pinklet', 'riftwarden')
 stP.enemy.stats.speed = 999
 local outP, evP = Battle.simulateTurn(stP,
     { type='move', moveId='quick_strike' }, { type='move', moveId='tackle' }, Battle.newRng(1))
 local firstDamage
 for _, ev in ipairs(evP) do
-    if ev.type == 'damage' or ev.type == 'hit' or ev.dmg then firstDamage = ev; break end
+    if ev.type == 'damage' then firstDamage = ev; break end
 end
 T(outP.enemy.stats.hp < outP.enemy.stats.maxHp, 'priority user lands its hit')
+T(firstDamage ~= nil, 'priority turn produces a damage event')
+T(firstDamage and firstDamage.target == 'riftwarden',
+  'priority user strikes FIRST (first damage lands on the enemy, not the player)')
 
 -- Burn halves physical damage (Gen 1 rule): compare same seed with/without burn
 local function dmgDealtWithStatus(status)
@@ -146,13 +152,13 @@ local oRun = Battle.simulateTurn(freshState(),
 eq(oRun.outcome, 'fled', 'run action produces fled outcome')
 
 -- Catch: guaranteed at rng extremes over many attempts, never errors
-local caughtAny, missedAny = false, false
+local caughtAny = false
 local rngC = Battle.newRng(2026)
 for i = 1, 200 do
     local weak = Creatures.new('pinklet', 3)
     weak.stats.hp = 1
     local ok = Battle.attemptCatch(weak, 1, rngC)
-    if ok then caughtAny = true else missedAny = true end
+    if ok then caughtAny = true end
 end
 T(caughtAny, 'catching a 1-HP low-level creature succeeds sometimes')
 
