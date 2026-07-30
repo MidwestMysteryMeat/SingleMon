@@ -8,7 +8,7 @@ SingleMon is a reference implementation of a monster-collector battle system. It
 
 ## Status
 
-**Fixed, tested, and boots — was previously unbootable.** As of 2026-07-02 the engine runs and a 1099-assertion headless test suite passes (data integrity for every species/move/type, plus battle mechanics). Three bugs that prevented it from launching at all were fixed: an invalid JSON escape, a scene router named `goto` (a reserved keyword under LÖVE's LuaJIT), and a signed-bit PRNG bug that biased every probability roll. Rough edges: sprites mount from an external MONCLONE asset path that **doesn't resolve under LÖVE 11** (the game runs on colored shapes), and there's no goal structure (gyms/champion) yet.
+**Fixed, tested, and boots — was previously unbootable.** As of 2026-07-30 the engine runs and a 1101-assertion headless test suite passes (data integrity for every species/move/type, plus battle mechanics). Three bugs that prevented it from launching at all were fixed: an invalid JSON escape, a scene router named `goto` (a reserved keyword under LÖVE's LuaJIT), and a signed-bit PRNG bug that biased every probability roll. Rough edges: sprites mount from an external MONCLONE asset path that **doesn't resolve under LÖVE 11** (the game runs on colored shapes), and there's no goal structure (gyms/champion) yet.
 
 ## How to run
 
@@ -17,7 +17,7 @@ Requires [LÖVE 11.4](https://love2d.org/).
 ```
 love .                        # play (renders shapes unless you set config.lua assetPath)
 lua tests/run_tests.lua       # 1101-assertion headless suite, ~1s, no LÖVE needed
-luacheck .                    # static analysis; must report 0 errors
+luacheck .                    # static analysis; must report 0 errors/0 warnings
 ```
 
 `.luacheckrc` excludes vendored `lib/` and mutes purely cosmetic codes, each
